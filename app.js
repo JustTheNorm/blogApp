@@ -11,6 +11,7 @@ app.use(morgan(`dev`))
 app.use(express.json());
 
 app.use(`/blog`, require(`./controllers/BlogRouter`))
+app.use(`/User`, require(`./controllers/UserRouter`))
 
 
 app.get('/', (req,res)=>{
