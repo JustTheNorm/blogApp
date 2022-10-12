@@ -7,7 +7,7 @@ const router = express.Router();
 router.get(`/`, async (req, res) => {
     try{
         const users = await userModel.find({})
-        res.send(users)
+        res.render(`users/users`)
     }
     catch(e){
         console.log(e);
@@ -28,28 +28,26 @@ router.get(`/:id`, async (req, res) => {
 });
 
 //POST: Create new user
-router.post(`/`, async (req, res) => {
-  try {
-    const newUser = await userModel.create(req.body);
-    res.send(newUser);
-  } catch (e) {
-    console.log(e);
-    res.status(403).send(`Cannot create`);
-  }
+router.post("/", async (req, res) => {
+    try {
+      // check if user exist
+      const userAlreadyExist = await UserModel.find({ email: req.body.email });
+  
+      // if there is a object inside of the array
+      if (userAlreadyExist[0]) {
+        return res.send("User Already exist!");
+      }
+  
+      // Create a new user
+      const user = await userModel.create(req.body);
+      res.send(user);
+    } catch (error) {
+      console.log(error);
+      res.status(403).send("Cannot POST");
+    }
+  });
 
-  // console.log(req.body)
-  // userModel.create(req.body)
-  // .then(data =>{
-  //     console.log(data)
-  //     res.send(data)
-  // })
-  // .catch(error =>{
-  //     console.log(error)
-  //     res.status(403).send(`Cannot create`)
-  // })
-});
-
-//PuT: Update By ID
+//PUT: Update By ID
 router.put(`/:id`, async (req,res)=>{
     try{
         const updatedUser = await userModel.findByIdAndUpdate(req.params.id, req.body, {'returnDocument' : "after"})
