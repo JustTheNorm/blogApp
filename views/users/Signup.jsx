@@ -22,7 +22,7 @@ class Signup extends React.Component{
                         <br/>
                         <label htmlFor="password">Password</label>
                         <br/>
-                        <input type="text" name="password" required />
+                        <input type="password" name="password" required />
                         <br/>
                         <label htmlFor="email">Email</label>
                         <br/>

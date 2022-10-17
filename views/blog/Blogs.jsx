@@ -3,9 +3,8 @@ const NavBar = require('../components/Navbar')
 
 class Blogs extends React.Component {
   render() {
-    const {BlogModel} = this.props
+    const {BlogModel, loggedInUser} = this.props
     const date = new Date(BlogModel.createdAt)
-    console.log(BlogModel[1].createdAt)
     return (
       <div>
         <head>
@@ -21,11 +20,17 @@ class Blogs extends React.Component {
                 <body>{blog.body}</body>
                 <h3>Written by: {blog.author}</h3>
                 <br/>
-                {/* <h7>{blog.createdAt}</h7> */}
-                <form action={`/blog/${blog._id}?_method=DELETE`} method='POST'>
+                {console.log(loggedInUser)}
+                {blog.author === loggedInUser ? (
+                <div>
+                  
+                  <a href={`/blog/${blog._id}/edit`}>Edit</a>
+                  <form action={`/blog/${blog._id}?_method=DELETE`} method='POST'>
                   <input type='submit' value='Delete' />
                 </form>
-                <a href={`/blog/${blog._id}/edit`}><button>Edit</button></a>
+                </div>
+              ) : null}
+                
               </div>
             ))}
         </div>

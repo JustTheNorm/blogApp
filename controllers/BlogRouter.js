@@ -3,11 +3,20 @@ const BlogModel = require(`../models/BlogSchema`);
 
 const router = express.Router();
 
+router.use((req,res,next)=>{
+    if(req.session.loggedIn){
+        next()
+    }
+    else{
+        res.redirect(`/user/signin`)
+    }
+})
+
 //GET all blogs
 router.get(`/`, async (req, res) => {
     try{
         const blogs = await BlogModel.find({})
-        res.render(`blog/Blogs`, {BlogModel:blogs})
+        res.render(`blog/Blogs`, {BlogModel:blogs, loggedInUser: req.session.username})
     }
     catch(e){
         console.log(e);
@@ -49,6 +58,7 @@ router.get(`/:id/edit`, async (req, res) => {
 router.post('/', async (req, res) => {
     // ^ Try-Catch Method
     try {
+        req.body.author = req.session.username
         await BlogModel.create(req.body)   
         res.redirect('/blog')
         // res.send('Blog successfully created!')

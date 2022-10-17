@@ -6,6 +6,9 @@ class Signin extends React.Component{
     render(){
         return(
             <div>
+                <head>
+                <link rel="stylesheet" href="/CSS/app.css"/>    
+                </head>
                 <Navbar/>
                 <h1>SignIn</h1>
 
@@ -18,7 +21,7 @@ class Signin extends React.Component{
                         <br/>
                         <label htmlFor="password">Password</label>
                         <br/>
-                        <input type="text" name="password" required />
+                        <input type="password" name="password" required />
                         <br/>
                         {/* <label htmlFor="email">Email</label>
                         <br/>
@@ -27,6 +30,11 @@ class Signin extends React.Component{
                         <input type="submit" value="Sign In"/>
                 </fieldset>
                 </form>
+                <div>
+                    <p>
+                        Don't have an Account? <a href="/user/signup">Sign Up</a>{" "}
+                    </p>
+                </div>
             </div>
         )
     }

@@ -26,12 +26,17 @@ router.get(`/signin`, (req,res)=>{
 
 router.post(`/signin`, async (req,res) =>{
     try{
+
+        //search for user
         const user = await userModel.findOne({username: req.body.username})
         if(!user) return res.send(`Please check your email and password!`)
 
         const decodedPW = await bcrypt.compare(req.body.password, user.password)
 
         if(!decodedPW) return res.send(`Please check your email and password!`)
+
+        req.session.username = user.username
+        req.session.loggedIn = true
 
         res.redirect(`/blog`)
 
@@ -62,6 +67,7 @@ router.post("/signup", async (req, res) => {
       // if there is a object inside of the array
       if (userAlreadyExist[0]) {
         return res.send("User Already exist!");
+        
       }
       //SALT securing the HASH
       const SALT = await bcrypt.genSalt(10) 
@@ -70,7 +76,9 @@ router.post("/signup", async (req, res) => {
   
       // Create a new user
       const user = await userModel.create(req.body);
-      res.redirect(`user/signin`)
+      res.redirect(`signin`)
+
+      
     //   res.redirect(`/User/signin`)
     } catch (error) {
       console.log(error);

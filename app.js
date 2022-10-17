@@ -5,6 +5,8 @@ const mongoose = require(`mongoose`);
 require(`dotenv`).config();
 const methodOverride = require(`method-override`)
 const path = require(`path`)
+const session = require(`express-session`)
+const MongoStore = require(`connect-mongo`)
 
 const app = express();
 const PORT = 3000;
@@ -16,7 +18,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan(`dev`));
 app.use(express.json());
 app.use(methodOverride("_method"));
+//setting up sessions
+app.use(session({
+  secret: process.env.secret,
+  store: MongoStore.create({mongoUrl: process.env.MONGO_URI}),
+  resave: false,
+  saveUninitialized: true
+}))
 
+// jsx engine
 app.set("view engine", "jsx");
 app.engine("jsx", require("express-react-views").createEngine());
 
