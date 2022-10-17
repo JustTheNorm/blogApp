@@ -4,6 +4,8 @@ const NavBar = require('../components/Navbar')
 class Show extends React.Component {
     render() {
         const { BlogModel } = this.props
+        const date = new Date(BlogModel.createdAt)
+        console.log(BlogModel.createdAt)
         return (
             <div>
                 <head>
@@ -15,6 +17,7 @@ class Show extends React.Component {
                     <h2>{BlogModel.title}</h2>
                     <h3>{BlogModel.body}</h3> 
                     <h3>Written by: {BlogModel.author}</h3>
+                    <h6>Blog Created: {date.toDateString()}</h6>
                     <a href={`/blog/`}><h4>Back</h4></a>
                 </div>
             </div>

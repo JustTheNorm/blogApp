@@ -11,12 +11,12 @@ class New extends React.Component {
                 </head>
                 <NavBar/> 
                 <h1>Create New Blog</h1>
-                <form action='/blog' method='POST'>
+                <form action='/blog' method='POST' style={{display: `flex`, justifyContent: `center`, alignItems: `center`, flexDirection: `column`}}>
                      title: <input type='text' name='title'/> 
                      <br />    
                      author: <input type='text' name='author'/>
                      <br />        
-                     body: <textarea name="body" rows="4" cols="50"/>
+                     body: <textarea name="body" rows="15" cols="50"/>
                      <br />
                      <input type='submit' value='Create new post!'/>
                 </form>

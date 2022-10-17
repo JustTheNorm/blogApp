@@ -4,7 +4,8 @@ const NavBar = require('../components/Navbar')
 class Blogs extends React.Component {
   render() {
     const {BlogModel} = this.props
-    console.log(BlogModel)
+    const date = new Date(BlogModel.createdAt)
+    console.log(BlogModel[1].createdAt)
     return (
       <div>
         <head>
@@ -12,13 +13,15 @@ class Blogs extends React.Component {
         </head>
         <NavBar/> 
         <h1>Blogs</h1>
-        <div>
+        
+        <div style={{display: `flex`, justifyContent: `center`, alignItems: `center`, flexDirection: `column`, alignSelf: `center`} }>
             {BlogModel.map((blog, idx)=>(
               <div>
                 <h2><a href={`/blog/${blog._id}`}>{blog.title}</a></h2> 
                 <body>{blog.body}</body>
                 <h3>Written by: {blog.author}</h3>
                 <br/>
+                {/* <h7>{blog.createdAt}</h7> */}
                 <form action={`/blog/${blog._id}?_method=DELETE`} method='POST'>
                   <input type='submit' value='Delete' />
                 </form>

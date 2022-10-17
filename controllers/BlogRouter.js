@@ -60,14 +60,14 @@ router.post('/', async (req, res) => {
 
 })
 
-//PuT: Update By ID
+//PUT: Update By ID
 router.put(`/:id`, async (req,res)=>{
     try{
         const updatedBlog = await BlogModel.findByIdAndUpdate(req.params.id, req.body, {'returnDocument' : "after"})
         res.redirect(`/blog`)
     }catch (e) {
         console.log(e);
-        res.status(403).send(`Cannot create`);
+        res.status(403).send(`Cannot PUT`);
       }
 })
 
@@ -76,7 +76,10 @@ router.delete(`/:id`, async (req,res)=>{
     try{
         const deletedBlog = await BlogModel.findByIdAndRemove(req.params.id)
         console.log(deletedBlog)
+        
         res.redirect('/blog')
+        
+        
     }catch (e) {
         console.log(e);
         res.status(403).send(`Cannot create`);

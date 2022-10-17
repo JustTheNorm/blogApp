@@ -1,5 +1,6 @@
 const express = require(`express`);
 const userModel = require(`../models/UserSchema`);
+const bcrypt = require(`bcryptjs`)
 
 const router = express.Router();
 
@@ -15,6 +16,31 @@ router.get(`/`, async (req, res) => {
     }
 });
 
+
+router.get(`/signup`, (req,res)=>{
+    res.render(`users/signup`)
+})
+router.get(`/signin`, (req,res)=>{
+    res.render(`users/signin`)
+})
+
+router.post(`/signin`, async (req,res) =>{
+    try{
+        const user = await userModel.findOne({username: req.body.username})
+        if(!user) return res.send(`Please check your email and password!`)
+
+        const decodedPW = await bcrypt.compare(req.body.password, user.password)
+
+        if(!decodedPW) return res.send(`Please check your email and password!`)
+
+        res.redirect(`/blog`)
+
+    }
+    catch(e){
+
+    }
+})
+
 //GET: user by ID
 router.get(`/:id`, async (req, res) => {
     try{
@@ -26,21 +52,26 @@ router.get(`/:id`, async (req, res) => {
         res.status(403).send(`Cannot create`);
     }
 });
-
 //POST: Create new user
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
     try {
-      // check if user exist
-      const userAlreadyExist = await UserModel.find({ email: req.body.email });
-  
+        // check if user exist
+        const userAlreadyExist = await userModel.find({ email: req.body.email });
+        
+        
       // if there is a object inside of the array
       if (userAlreadyExist[0]) {
         return res.send("User Already exist!");
       }
+      //SALT securing the HASH
+      const SALT = await bcrypt.genSalt(10) 
+      // re=assigning password then hashing
+      req.body.password = await bcrypt.hash(req.body.password, SALT) 
   
       // Create a new user
       const user = await userModel.create(req.body);
-      res.send(user);
+      res.redirect(`user/signin`)
+    //   res.redirect(`/User/signin`)
     } catch (error) {
       console.log(error);
       res.status(403).send("Cannot POST");
