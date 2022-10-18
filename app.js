@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 //setting up sessions
 app.use(session({
-  secret: process.env.secret,
+  secret: process.env.SECRET,
   store: MongoStore.create({mongoUrl: process.env.MONGO_URI}),
   resave: false,
   saveUninitialized: true
