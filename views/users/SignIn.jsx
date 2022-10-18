@@ -32,7 +32,7 @@ class Signin extends React.Component{
                 </form>
                 <div>
                     <p>
-                        Don't have an Account? <a href="/user/signup">Sign Up</a>{" "}
+                        Don't have an Account? <a href="/user/signup">Sign Up</a>{" "}  
                     </p>
                 </div>
             </div>
