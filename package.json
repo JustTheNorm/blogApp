@@ -8,7 +8,6 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
-
   },
   "keywords": [],
   "author": "",
@@ -24,11 +23,8 @@
     "method-override": "^3.0.0",
     "mongo": "^0.1.0",
     "mongoose": "^6.6.5",
+    "morgan": "^1.10.0",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "morgan": "^1.10.0"
-  },
-  "devDependencies": {
-    
+    "react-dom": "^16.14.0"
   }
 }
