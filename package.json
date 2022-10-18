@@ -21,9 +21,10 @@
     "mongo": "^0.1.0",
     "mongoose": "^6.6.5",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react-dom": "^16.14.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "morgan": "^1.10.0"
+    
   }
 }
