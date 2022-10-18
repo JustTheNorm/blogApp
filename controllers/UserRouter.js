@@ -8,7 +8,7 @@ const router = express.Router();
 router.get(`/`, async (req, res) => {
     try{
         const users = await userModel.find({})
-        res.render(`users/users`)
+        res.render(`users/Users`)
     }
     catch(e){
         console.log(e);
@@ -18,11 +18,11 @@ router.get(`/`, async (req, res) => {
 
 
 router.get(`/signup`, (req,res)=>{
-    res.render(`users/signup`)
+    res.render(`users/Signup`)
 })
 
 router.get(`/signin`, (req,res)=>{
-    res.render(`users/signin`)
+    res.render(`users/Signin`)
 })
 
 router.post(`/signin`, async (req,res) =>{
