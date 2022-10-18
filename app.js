@@ -34,7 +34,7 @@ app.use(`/blog`, require(`./controllers/BlogRouter`));
 app.use(`/user`, require(`./controllers/UserRouter`));
 
 app.get("/", (req, res) => {
-  res.render('pages/index')
+  res.render('pages/HomePage')
 });
 
 app.listen(PORT, () => {
