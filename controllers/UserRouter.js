@@ -20,6 +20,7 @@ router.get(`/`, async (req, res) => {
 router.get(`/signup`, (req,res)=>{
     res.render(`users/signup`)
 })
+
 router.get(`/signin`, (req,res)=>{
     res.render(`users/signin`)
 })
@@ -46,6 +47,17 @@ router.post(`/signin`, async (req,res) =>{
     }
 })
 
+// * Signout User & destroy session
+router.get('/signout', (req, res) => {
+    try {
+        req.session.destroy()
+        res.redirect('/')
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 //GET: user by ID
 router.get(`/:id`, async (req, res) => {
     try{
@@ -57,6 +69,7 @@ router.get(`/:id`, async (req, res) => {
         res.status(403).send(`Cannot create`);
     }
 });
+
 //POST: Create new user
 router.post("/signup", async (req, res) => {
     try {

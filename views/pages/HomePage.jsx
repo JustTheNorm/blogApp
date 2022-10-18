@@ -8,7 +8,7 @@ class HomePage extends React.Component {
             <head>             
                 <link rel="stylesheet" href="/CSS/app.css"/>             
                 </head>              
-                <NavBar/>              
+                <NavBar/>          
                 <h1>Welcome to my Blog App</h1>              
                 {/* <img src='../../public/bg.png' width="300px" height="300px"/>           */}
                 </div>
