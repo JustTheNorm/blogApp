@@ -4,7 +4,7 @@ const dotenv = require(`dotenv`);
 const mongoose = require(`mongoose`);
 require(`dotenv`).config();
 const methodOverride = require(`method-override`)
-const path = require(`path`)
+// const path = require(`path`)
 const session = require(`express-session`)
 const MongoStore = require(`connect-mongo`)
 
