@@ -23,6 +23,7 @@ router.get(`/`, async (req, res) => {
         res.status(403).send(`Cannot create`);
     }
 });
+
 router.get('/new', (req, res) => {
     res.render('blog/New')
 })

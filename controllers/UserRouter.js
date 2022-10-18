@@ -22,7 +22,7 @@ router.get(`/signup`, (req,res)=>{
 })
 
 router.get(`/signin`, (req,res)=>{
-    res.render(`users/signin`)
+    res.render(`users/Signin`)
 })
 
 router.post(`/signin`, async (req,res) =>{
