@@ -4,6 +4,7 @@ const NavBar = require('../components/Navbar')
 class Show extends React.Component {
     render() {
         const { BlogModel , loggedInUser} = this.props
+        console.log(loggedInUser)
         const date = new Date(BlogModel.createdAt)
         console.log(BlogModel.createdAt)
         return (
