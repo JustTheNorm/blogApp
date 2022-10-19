@@ -11,7 +11,7 @@ class Show extends React.Component {
                 <head>
                 <link rel="stylesheet" href="/CSS/app.css"/>    
                 </head>
-                <NavBar/> 
+                <NavBar loggedInUser={loggedInUser}/>  
                 <h1>Blogs Show Page</h1>
                 <div  style={styles.container}>
                     <h2>{BlogModel.title}</h2>

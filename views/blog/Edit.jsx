@@ -10,7 +10,7 @@ class Edit extends React.Component{
                 <head>
                 <link rel="stylesheet" href="/CSS/app.css"/>    
                 </head>
-                <NavBar/> 
+                <NavBar loggedInUser={loggedInUser}/> 
                 <h1>Edit</h1>
                 <form action={`/blog/${BlogModel._id}?_method=PUT`} method='POST'>
                      title: <input type='text' name='title' defaultValue={BlogModel.title}/> 

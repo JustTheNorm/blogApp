@@ -3,6 +3,7 @@ const React = require('react')
 class Navbar extends React.Component {
     render() {
         const {loggedInUser} = this.props
+        console.log(loggedInUser)
         return(
             <nav style={styles.container}>
                 { loggedInUser && <h6>{loggedInUser}</h6>}

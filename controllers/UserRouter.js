@@ -35,10 +35,10 @@ router.post(`/signin`, async (req,res) =>{
         const decodedPW = await bcrypt.compare(req.body.password, user.password)
 
         if(!decodedPW) return res.send(`Please check your email and password!`)
-
         req.session.username = user.username
         req.session.loggedIn = true
-
+        
+        
         res.redirect(`/blog`)
 
     }
@@ -77,8 +77,8 @@ router.post("/signup", async (req, res) => {
   
       // Create a new user
       const user = await userModel.create(req.body);
-    //   res.redirect(`/signin`)
-    res.redirect(`/user/signin`)
+      res.redirect(`/signin`)
+    // res.redirect(`/user/signin`)
     } catch (error) {
       console.log(error);
       res.status(403).send("Cannot POST");

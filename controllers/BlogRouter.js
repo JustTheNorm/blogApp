@@ -15,6 +15,7 @@ router.use((req,res,next)=>{
 //GET all blogs
 router.get(`/`, async (req, res) => {
     try{
+        console.log("helooo", req.session.username)
         const blogs = await BlogModel.find({})
         res.render(`blog/Blogs`, {BlogModel:blogs, loggedInUser: req.session.username})
     }
@@ -25,7 +26,7 @@ router.get(`/`, async (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-    res.render('blog/New')
+    res.render('blog/New', {loggedInUser: req.session.username})
 })
 
 
@@ -34,7 +35,7 @@ router.get(`/:id`, async (req, res) => {
     try{
      
         const blogs = await BlogModel.findById(req.params.id)
-        res.render(`blog/Show`, {BlogModel:blogs, loggedInUser: req.session.username})
+        res.render(`blog/Show`, {BlogModel:blogs})
     }
     catch(e){
         console.log(e);
@@ -46,7 +47,7 @@ router.get(`/:id/edit`, async (req, res) => {
     try{
      
         const blogs = await BlogModel.findById(req.params.id)
-        res.render(`blog/edit`, {BlogModel:blogs, loggedInUser: req.session.username})
+        res.render(`blog/edit`, {BlogModel:blogs})
     }
     catch(e){
         console.log(e);
