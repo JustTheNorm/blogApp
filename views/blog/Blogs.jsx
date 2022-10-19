@@ -30,6 +30,7 @@ class Blogs extends React.Component {
                 </form>
                 </div>
               ) : null}
+              
                 
               </div>
             ))}

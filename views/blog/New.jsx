@@ -20,6 +20,7 @@ class New extends React.Component {
                      body: <textarea name="body" rows="15" cols="50"/>
                      <br />
                      <input type='submit' value='Create new post!'/>
+                     
                 </form>
             </div>
         )

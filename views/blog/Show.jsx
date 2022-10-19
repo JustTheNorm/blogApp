@@ -19,6 +19,7 @@ class Show extends React.Component {
                     <h3>Written by: {BlogModel.author}</h3>
                     <h6>Blog Created: {date.toDateString()}</h6>
                     <a href={`/blog/`}><h4>Back</h4></a>
+                    
                 </div>
             </div>
         );
