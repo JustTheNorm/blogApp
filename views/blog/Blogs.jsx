@@ -42,7 +42,7 @@ class Blogs extends React.Component {
 
 const styles = {
   container: {
-      justifyContent: "center"
+      // justifyContent: "center"
   }
 }
 
