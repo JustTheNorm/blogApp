@@ -27,6 +27,10 @@ app.use(session({
   saveUninitialized: true
 }))
 
+app.use((req,res,next)=>
+next()
+)
+
 // jsx engine
 app.set("view engine", "jsx");
 app.engine("jsx", require("express-react-views").createEngine());

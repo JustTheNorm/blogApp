@@ -34,7 +34,7 @@ router.get(`/:id`, async (req, res) => {
     try{
      
         const blogs = await BlogModel.findById(req.params.id)
-        res.render(`blog/Show`, {BlogModel:blogs})
+        res.render(`blog/Show`, {BlogModel:blogs, loggedInUser: req.session.username})
     }
     catch(e){
         console.log(e);
@@ -46,7 +46,7 @@ router.get(`/:id/edit`, async (req, res) => {
     try{
      
         const blogs = await BlogModel.findById(req.params.id)
-        res.render(`blog/edit`, {BlogModel:blogs})
+        res.render(`blog/edit`, {BlogModel:blogs, loggedInUser: req.session.username})
     }
     catch(e){
         console.log(e);

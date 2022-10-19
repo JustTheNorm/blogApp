@@ -1,21 +1,20 @@
 const React = require('react')
 
-
 class Navbar extends React.Component {
     render() {
+        const {loggedInUser} = this.props
         return(
             <nav style={styles.container}>
+                { loggedInUser && <h6>{loggedInUser}</h6>}
                 <a href='/'>Home</a>
                 <a href='/blog'>Blogs</a>
                 <a href='/blog/new'>Create New Blog</a>
-                <a href='/user/signin'>Login</a>
-                <a href='/user/signout'>Sign Out</a>
-                
+                <a href='/user/signup'>Signin/up</a>
+                { loggedInUser && <a href='/user/signout'>Signout</a>}
             </nav>
         )
     }
 }
-
 const styles = {
     container : {
         display:"flex",
