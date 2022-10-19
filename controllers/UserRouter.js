@@ -22,7 +22,7 @@ router.get(`/signup`, (req,res)=>{
 })
 
 router.get(`/signin`, (req,res)=>{
-    res.render(`users/Signin.jsx` )
+    res.render(`users/Signin` )
 })
 
 router.post(`/signin`, async (req,res) =>{
@@ -58,18 +58,6 @@ router.get('/signout', (req, res) => {
     }
 })
 
-//GET: user by ID
-router.get(`/:id`, async (req, res) => {
-    try{
-        const users = await userModel.findById(req.params.id)
-        res.send(users)
-    }
-    catch(e){
-        console.log(e);
-        res.status(403).send(`Cannot create`);
-    }
-});
-
 //POST: Create new user
 router.post("/signup", async (req, res) => {
     try {
@@ -89,15 +77,27 @@ router.post("/signup", async (req, res) => {
   
       // Create a new user
       const user = await userModel.create(req.body);
-      res.redirect(`signin`)
-
-      
-    //   res.redirect(`/User/signin`)
+    //   res.redirect(`/signin`)
+    res.redirect(`/user/signin`)
     } catch (error) {
       console.log(error);
       res.status(403).send("Cannot POST");
     }
   });
+
+//GET: user by ID
+router.get(`/:id`, async (req, res) => {
+    try{
+        const users = await userModel.findById(req.params.id)
+        res.send(users)
+    }
+    catch(e){
+        console.log(e);
+        res.status(403).send(`Cannot create`);
+    }
+});
+
+
 
 //PUT: Update By ID
 router.put(`/:id`, async (req,res)=>{
