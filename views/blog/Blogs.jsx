@@ -13,7 +13,7 @@ class Blogs extends React.Component {
         <NavBar loggedInUser={loggedInUser}/> 
         <h1>Blogs</h1>
         
-        <div style={{display: `flex`, justifyContent: `center`, alignItems: `center`, flexDirection: `column`, alignSelf: `center`} }>
+        <div style={{display: `flex`, justifyContent: `center`, flexDirection: `column`, } }>
             {BlogModel.map((blog, idx)=>(
               <div>
                 <h2><a href={`/blog/${blog._id}`}>{blog.title}</a></h2> 
@@ -47,4 +47,5 @@ const styles = {
 }
 
 module.exports = Blogs
+
 

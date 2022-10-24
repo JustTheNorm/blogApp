@@ -77,7 +77,7 @@ router.post("/signup", async (req, res) => {
   
       // Create a new user
       const user = await userModel.create(req.body);
-      res.redirect(`/signin`)
+      res.redirect(`/user/signin`)
     // res.redirect(`/user/signin`)
     } catch (error) {
       console.log(error);
