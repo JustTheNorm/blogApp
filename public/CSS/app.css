@@ -59,3 +59,44 @@ input[type=submit] {
   font-size: .75em;
   border-radius: 10%;
 }
+
+.img{
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+  width: 100%;
+  /* width: 100%; */
+  object-fit: cover;
+  /* padding-top: 0px; */
+}
+
+.blogs{
+  margin-left: 20px;
+  padding: 0 1.5rem;
+}
+
+.blog-title{
+  text-align: center;
+}
+.blog-body{
+  margin-left:20px;
+  
+}
+.blog-subtitle{
+
+}
+.blog-card{
+  box-shadow: 0 1.4rem 8rem rgba(0,0,0,.2);
+  /* display: flex; */
+  align-items: center;
+  border-radius: .8rem;
+  padding: 5rem;
+  height: auto;
+  /* width: 500px; */
+
+
+  
+}

@@ -4,7 +4,7 @@ const NavBar = require('../components/Navbar')
 
 class Edit extends React.Component{
     render(){
-        const {BlogModel} = this.props
+        const {BlogModel, loggedInUser} = this.props
         return(
             <div>
                 <head>
@@ -16,7 +16,9 @@ class Edit extends React.Component{
                      title: <input type='text' name='title' defaultValue={BlogModel.title}/> 
                      <br />    
                      author: <input type='text' name='author' defaultValue={BlogModel.author}/>
-                     <br />        
+                     <br />   
+                     image: <input type="text" name='image' defaultValue={BlogModel.image}/>
+                     <br/>
                      body: <textarea name="body" rows="4" cols="50" defaultValue={BlogModel.body}/>
                      <br />
                      <input type='submit' value='Edit Post'/>

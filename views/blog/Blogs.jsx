@@ -12,10 +12,10 @@ class Blogs extends React.Component {
         </head>
         <NavBar loggedInUser={loggedInUser}/> 
         <h1>Blogs</h1>
-        
-        <div style={{display: `flex`, justifyContent: `center`, flexDirection: `column`, } }>
+        <img className="img" src="https://source.unsplash.com/UHqfUTDmdC4"/>
+        <div className="blogs" style={{display: `flex`, justifyContent: `center`, flexDirection: `column`, } }>
             {BlogModel.map((blog, idx)=>(
-              <div>
+              <div className="blog-card">
                 <h2><a href={`/blog/${blog._id}`}>{blog.title}</a></h2> 
                 <body>{blog.body}</body>
                 <h3>Written by: {blog.author}</h3>

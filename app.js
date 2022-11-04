@@ -39,6 +39,7 @@ app.use(`/blog`, require(`./controllers/BlogRouter`));
 app.use(`/user`, require(`./controllers/UserRouter`));
 
 app.get("/", (req, res) => {
+  
   res.render('pages/HomePage', {loggedInUser: req.session.username})
 });
 

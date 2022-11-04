@@ -15,6 +15,8 @@ class New extends React.Component {
                 <form action='/blog' method='POST' style={{display: `flex`, justifyContent: `center`, alignItems: `center`, flexDirection: `column`}}>
                      title: <input type='text' name='title'/> 
                      <br />    
+                     banner img: <input type="text" name="image"/>
+                     <br/>
                      {/* author: <input type='text' name='author'/>
                      <br />         */}
                      body: <textarea name="body" rows="15" cols="50"/>

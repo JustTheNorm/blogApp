@@ -6,7 +6,7 @@ class Navbar extends React.Component {
         // console.log(loggedInUser)
         return(
             <nav style={styles.container}>
-                { loggedInUser && <h6>{loggedInUser}</h6>}
+                { loggedInUser && <h6 className='blogs'>{loggedInUser}</h6>}
                 <a href='/'>Home</a>
                 <a href='/blog'>Blogs</a>
                 <a href='/blog/new'>Create New Blog</a>

@@ -15,13 +15,13 @@ class Signin extends React.Component{
                 <form action="/user/signin" method="post">
                     <fieldset>
                         <legend>Sign In</legend>
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username" >Username</label>
                         <br/>
-                        <input type="text" name="username" required/>
+                        <input type="text" name="username" required value="123"/>
                         <br/>
                         <label htmlFor="password">Password</label>
                         <br/>
-                        <input type="password" name="password" required />
+                        <input type="password" name="password" required value="123"/>
                         <br/>
                         {/* <label htmlFor="email">Email</label>
                         <br/>
